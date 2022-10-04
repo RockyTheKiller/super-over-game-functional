@@ -8,7 +8,7 @@ const $team2Wickets = document.getElementById("wickets-team2");
 const strikeAudio = new Audio("http://bit.ly/so-ball-hit");
 const gameOverAudio = new Audio("http://bit.ly/so-crowd-cheer");
 
-const possibleOutcomes = [0, 1, 2, 3, 4, 5, 6, "W"];
+const possibleOutcomes = [0, 1, 2, 3, 4, 5, 6, "W","wb"];
 
 var team1Score = 0;
 var team1Wickets = 0;
@@ -52,7 +52,12 @@ strikeButton.onclick = () => {
 
     if (randomElement === "W") {
       team2Wickets++;
-    } else {
+    }
+    else if (randomElement==="wb") {
+      team2Score++;
+      team2BallsFaced--;
+    }
+    else {
       team2Score += randomElement;
     }
 
@@ -74,7 +79,12 @@ strikeButton.onclick = () => {
 
     if (randomElement === "W") {
       team1Wickets++;
-    } else {
+    }
+    else if (randomElement==="wb") {
+      team1Score++;
+      team1BallsFaced--;
+    }
+    else {
       team1Score += randomElement;
     }
     if (team1BallsFaced === 6 || team1Wickets === 2) turn = 2;
